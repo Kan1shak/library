@@ -13,7 +13,7 @@ Book.prototype.info = function(){
     return `<p><span class="book-label">Name:</span>${this.title} </p>
             <p><span class="book-label">Author:</span> ${this.author}</p>
             <p><span class="book-label">Pages:</span> ${this.pages}</p>
-            <p><span class="book-label">Read:</span> ${this.readStatus()}</p>`;
+            <p><span class="book-label">Status:</span> ${this.readStatus()}</p>`;
 }
 //Get read status as plain text instead of true and false
 Book.prototype.readStatus = function (){
@@ -26,14 +26,16 @@ Book.prototype.readStatus = function (){
 //Change the read status, also update the node with new status
 Book.prototype.changeRead = function(){
     if(this.read){
-        this.node.style.backgroundColor = 'gray';
+        this.node.style.color = 'var(--text-color)';
+        this.node.style.backgroundColor = 'var(--main-color)';
         this.read = false;
     }else{
         this.read = true;
-        this.node.style.backgroundColor = 'green';
+        this.node.style.backgroundColor = 'rgb(196, 255, 196)';
+        this.node.style.color = 'var(--text-color-dark)';
     }
 
-    this.node.firstChild.querySelector('p:last-child').innerHTML = `<span class="book-label">Read: ${this.readStatus()}`;
+    this.node.firstChild.querySelector('p:last-child').innerHTML = `<span class="book-label">Status: ${this.readStatus()}`;
 }
 //Delete a book
 Book.prototype.deleteBook = function (){
@@ -56,15 +58,15 @@ function addBookToLibrary(title, author, pages, read, color){
     const infoDiv = document.createElement('div');
     infoDiv.innerHTML = newBook.info();
     div.appendChild(infoDiv);
-    //creating the label to select read status
-    const label = document.createElement('label');
-    label.innerHTML = ' read?';
-    div.append(label);
     //creating the checkbox for the label
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.addEventListener('change', () => newBook.changeRead());
     div.appendChild(checkbox);
+    //creating the label to select read status
+    const label = document.createElement('label');
+    label.innerHTML = 'Read';
+    div.append(label);
     //appending the div to the container
     container.appendChild(div);
     newBook.node = div;
@@ -91,3 +93,9 @@ form.addEventListener("submit", (e)=>{
     })
     addBookToLibrary(...book_info);
 });
+
+addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false, '');
+addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', 1178, false, '');
+addBookToLibrary('The Silmarillion', 'J.R.R. Tolkien', 365, false, '');
+addBookToLibrary('The Children of Hurin', 'J.R.R. Tolkien', 313, false, '');
+addBookToLibrary('The Fall of Gondolin', 'J.R.R. Tolkien', 304, false, '');

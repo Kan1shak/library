@@ -1,7 +1,92 @@
+:root {
+    --main-color: #5F4B8B;
+    --main-hover: #daa7ff;
+    --main-active: #a7b6ff;
+    --accent-color: #409b92;
+    --accent-hover: #008080;
+    --accent-active: #ffa7cc;
+    --text-color: #ffffff;
+    --text-color-dark: #1a1014;
+    --text-color-light: #edf0ff;
+    --background-color: #F5F5F5;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
+input[type="checkbox"]{
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 0.65rem;
+    accent-color: rgb(49, 101, 68);
+}
+
+#book-form {
+    display: none;
+}
+
+#book-form label:not([for="read"]) {
+    display: block;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:3rem;
+    padding: 3rem;
+    justify-items: center;
+}
+
+.container > div {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 15px;
+    /* border-left: 10px solid var(--accent-color); */
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    min-width: 300px;
+    -webkit-box-shadow: 3px 7px 0px 3px var(--accent-color);
+    -moz-box-shadow: 3px 57px 0px 3px var(--accent-color);
+    box-shadow: 3px 7px 0px 3px var(--accent-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.container > div:hover {
+    border-left: 0px;
+    border: 0px solid var(--accent-color);
+    -webkit-box-shadow: 0px 0px 0px 5px var(--accent-color);
+    -moz-box-shadow: 0px 0px 0px 5px var(--accent-color);
+    box-shadow: 0px 0px 0px 5px var(--accent-color);
+    scale: 1.11;
+}
+
+.container > div>* span, .container > div> label {
+    font-weight: 500;
+    margin-right:2px;
+}
+
+.container > div > input {
+    margin-top: 1rem;
+}
+
+.container > div > button {
+    display: block;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #d74e4e;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+
+}
