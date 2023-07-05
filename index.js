@@ -94,6 +94,19 @@ form.addEventListener("submit", (e)=>{
     addBookToLibrary(...book_info);
 });
 
+const addBtn = document.getElementById('add-book');
+addBtn.addEventListener('click', ()=>{
+    document.getElementById('form-container').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+});
+
+document.body.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('overlay')){
+        document.getElementById('form-container').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    }
+});
+
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false, '');
 addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', 1178, false, '');
 addBookToLibrary('The Silmarillion', 'J.R.R. Tolkien', 365, false, '');
