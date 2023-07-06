@@ -117,6 +117,36 @@ function addBookToLibrary(title, author, pages, read){
     delBtn.addEventListener('click', () => newBook.deleteBook());
     div.appendChild(delBtn)  
 }
+//functions for random colors
+function randomColor() {
+    let h = Math.floor(Math.random() * 360);
+    const s = 100;
+    const l = 88;
+    const sign = Math.floor(Math.random() * 2);
+    if (h > 75 && h < 150) {
+        if (sign == 0) {
+            h = h - 75;
+        }
+        else {
+            h = h + 75;
+        }
+    }
+    return [h,s,l];
+}
+
+function colorToString(h,s,l) {
+    return `hsl(${h}, ${s}%, ${l}%)`;}
+
+
+function randomAccentColor(h,s,l) {
+    h = h + 10;
+    s = s - 58;
+    l = l - 45;
+    if (h > 360) {
+        h = h - 360;
+    }
+    return `hsl(${h}, ${s}%, ${l}%)`;
+}
 
 //Event listener to get the form data for book details
 const form = document.getElementById('book-form');
@@ -155,32 +185,3 @@ addBookToLibrary('The Children of Hurin', 'J.R.R. Tolkien', 313, false, '');
 addBookToLibrary('The Fall of Gondolin', 'J.R.R. Tolkien', 304, false, '');
 
 
-function randomColor() {
-    let h = Math.floor(Math.random() * 360);
-    const s = 100;
-    const l = 88;
-    const sign = Math.floor(Math.random() * 2);
-    if (h > 75 && h < 150) {
-        if (sign == 0) {
-            h = h - 75;
-        }
-        else {
-            h = h + 75;
-        }
-    }
-    return [h,s,l];
-}
-
-function colorToString(h,s,l) {
-    return `hsl(${h}, ${s}%, ${l}%)`;}
-
-
-function randomAccentColor(h,s,l) {
-    h = h + 10;
-    s = s - 58;
-    l = l - 45;
-    if (h > 360) {
-        h = h - 360;
-    }
-    return `hsl(${h}, ${s}%, ${l}%)`;
-}
