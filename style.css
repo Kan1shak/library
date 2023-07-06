@@ -24,9 +24,9 @@ body {
 }
 
 header {
-    background-color: var(--main-color);
-    color: var(--text-color);
-    padding: 1rem;
+    background-color: rgb(125, 195, 255);
+    color: rgb(11, 51, 87) ;
+    padding: 16px 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,9 +41,21 @@ header button {
     padding: .5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: var(--accent-color);
-    color: #fff;
+    background-color: aliceblue;
+    color: rgb(125, 195, 255);
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+header button:hover {
+    background-color: rgb(191, 224, 255);
+    color: rgb(11, 51, 87);
+}
+
+header button:active {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(191, 224, 255, 0.5);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(191, 224, 255, 0.5);
+    box-shadow: 0px 0px 0px 3px rgba(191, 224, 255, 0.5);
 }
 
 input[type="checkbox"]{
@@ -55,7 +67,7 @@ input[type="checkbox"]{
 
 #form-container {
     position: fixed;
-    background-color: var(--accent-color);
+    background-color: aliceblue;
     color: var(--text-color-dark);
     z-index: 1;
     top: 50%;
@@ -64,7 +76,8 @@ input[type="checkbox"]{
     transform: translate(-50%, -50%) scale(0);
     transition: 0.2s ease-in-out;
     border-radius: 15px;
-    box-shadow: 0 0 5px var(--accent-color);
+    border: 1px solid rgb(191, 224, 255);
+    box-shadow: 0 0 5px aliceblue;
     padding: 2rem;
 }
 
@@ -75,8 +88,8 @@ input[type="checkbox"]{
     display: none;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.251);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(5px);
 }
 
@@ -113,20 +126,19 @@ input[type="checkbox"]{
     border-radius: 5px;
     width: 100%;
     border: none;
-    background-color: #32877f;
+    background-color: rgb(184, 190, 196);
     color: var(--text-color-dark);
     transition: all 0.2s ease-in-out;
-    color: var(--text-color-light);
     font-weight: 500;
     font-size: 1rem;
 }
 
 .form-item-container input:not([type^="ch"]):focus {
-    margin-top: 5px;
+    margin-top: 3px;
     outline: none;
-    -webkit-box-shadow: 0px 0px 0px 5px var(--accent-hover);
-    -moz-box-shadow: 0px 0px 0px 5px var(--accent-hover);
-    box-shadow: 0px 0px 0px 5px var(--accent-hover);
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(184, 190, 196, 0.5);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(184, 190, 196, 0.5);
+    box-shadow: 0px 0px 0px 3px rgba(184, 190, 196, 0.5);
 }
 
 .form-item-container div:nth-child(4){
@@ -134,7 +146,7 @@ input[type="checkbox"]{
 }
 
 .form-item-container [type="checkbox"]{
-    accent-color: var(--accent-hover);
+    accent-color: rgba(184, 190, 196, 0.5);
 }
 
 .form-item-container button {
@@ -143,21 +155,21 @@ input[type="checkbox"]{
     padding: .5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: var(--main-color);
+    background-color: rgb(129, 164, 195);
     color: #fff;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 .form-item-container button:hover {
-    background-color: #7660a5;
+    background-color: rgb(98, 149, 193);
 }
 
 .form-item-container button:active {
-    background-color: #5f4c89;
-    -webkit-box-shadow: 0px 0px 0px 3px #7660a5;
-    -moz-box-shadow: 0px 0px 0px 3px #7660a5;
-    box-shadow: 0px 0px 0px 3px #7660a5;
+    background-color: rgb(78, 133, 181);
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(78, 133, 181, 0.5);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(78, 133, 181, 0.5);
+    box-shadow: 0px 0px 0px 3px rgba(78, 133, 181, 0.5);
 
 }
 
@@ -214,5 +226,22 @@ input[type="checkbox"]{
     color: #fff;
     cursor: pointer;
     margin-top: 1rem;
+    transition: all 0.2s ease-in-out;
 
+}
+
+.container > div > button:hover {
+    background-color: #df5e5e;
+}
+
+.container > div > button:active {  
+    -webkit-box-shadow: 0px 0px 0px 3px #df5e5ed0;
+    -moz-box-shadow: 0px 0px 0px 3px #df5e5ed0;
+    box-shadow: 0px 0px 0px 3px #df5e5ed0;
+}
+
+.container > div > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
 }
