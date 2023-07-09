@@ -1,47 +1,44 @@
 myLibrary = [];
-//Constructor function for Books
-function Book(title, author, pages, read, color,node){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.color = color;
-    this.node = node;
-}
-//Return the books info in html format
-Book.prototype.info = function(){
-    return `<p><span class="book-label">Name:</span>${this.title} </p>
-            <p><span class="book-label">Author:</span> ${this.author}</p>
-            <p><span class="book-label">Pages:</span> ${this.pages}</p>
-            <p><span class="book-label">Status:</span> ${this.readStatus()}</p>`;
-}
-//Get read status as plain text instead of true and false
-Book.prototype.readStatus = function (){
-    if(this.read){
-        return "Completed"
-    } else {
-        return "In Progress"
+//Book class
+class Book {
+    constructor(title, author, pages, read, color,node){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.color = color;
+        this.node = node;
     }
-}
-//Change the read status, also update the node with new status
-Book.prototype.changeRead = function(){
-    if(this.read){
-        this.node.style.color = `${randomAccentColor(...this.color)}`;
-        this.node.style.backgroundColor = `${colorToString  (...this.color)}`;
-        this.read = false;
-    }else{
-        this.read = true;
-        this.node.style.backgroundColor = 'rgb(196, 255, 196)';
-        this.node.style.color = 'var(--text-color-dark)';
+    info(){
+        return `<p><span class="book-label">Name:</span>${this.title} </p>
+                <p><span class="book-label">Author:</span> ${this.author}</p>
+                <p><span class="book-label">Pages:</span> ${this.pages}</p>
+                <p><span class="book-label">Status:</span> ${this.readStatus()}</p>`;
     }
-
-    this.node.firstChild.querySelector('p:last-child').innerHTML = `<span class="book-label">Status: </span>${this.readStatus()}`;
-}
-//Delete a book
-Book.prototype.deleteBook = function (){
-    const index = myLibrary.indexOf(this);
-    this.node.remove();
-    myLibrary.splice(index,1)    
+    readStatus(){
+        if(this.read){
+            return "Completed"
+        } else {
+            return "In Progress"
+        }
+    }
+    changeRead(){
+        if(this.read){
+            this.node.style.color = `${randomAccentColor(...this.color)}`;
+            this.node.style.backgroundColor = `${colorToString  (...this.color)}`;
+            this.read = false;
+        }else{
+            this.read = true;
+            this.node.style.backgroundColor = 'rgb(196, 255, 196)';
+            this.node.style.color = 'var(--text-color-dark)';
+        }
+        this.node.firstChild.querySelector('p:last-child').innerHTML = `<span class="book-label">Status: </span>${this.readStatus()}`;
+    }
+    deleteBook(){
+        const index = myLibrary.indexOf(this);
+        this.node.remove();
+        myLibrary.splice(index,1)    
+    }
 }
 //Create a new book and add it to the library
 function addBookToLibrary(title, author, pages, read){
@@ -133,7 +130,6 @@ function randomColor() {
     }
     return [h,s,l];
 }
-
 function colorToString(h,s,l) {
     return `hsl(${h}, ${s}%, ${l}%)`;}
 
